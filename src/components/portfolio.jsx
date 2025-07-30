@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
-import profileImage from '../images/profile-picture.jpg';
+import profileImage from '../images/profile-picture.png';
 import Project1Image from '../images/Project1.png';
 import Project2Image from '../images/Project2.png';
 import Project3Image from '../images/Project3.png';
