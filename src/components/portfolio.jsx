@@ -72,7 +72,7 @@ const ContactForm = () => {
       }
     } catch (error) {
       setSubmitStatus('error');
-      setError('Network error. Please check your connection and try again.');
+      setError('This form is under maintenance, please email me instead. '); //FIX THIS IMMEDIATELY
       console.error('Network error:', error);
       setTimeout(() => {
         setSubmitStatus('');
@@ -91,6 +91,7 @@ const ContactForm = () => {
       <motion.div variants={itemVariants}>
         <input
           type="text"
+          readOnly //FIX THIS IMMEDIATELY
           placeholder="Your Name"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -103,6 +104,7 @@ const ContactForm = () => {
       <motion.div variants={itemVariants}>
         <input
           type="email"
+          readOnly //FIX THIS IMMEDIATELY
           placeholder="Your Email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -114,6 +116,7 @@ const ContactForm = () => {
       
       <motion.div variants={itemVariants}>
         <textarea
+          readOnly //FIX THIS IMMEDIATELY
           placeholder="Your Message"
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -145,14 +148,14 @@ const ContactForm = () => {
         </motion.div>
       )}
       
-      {submitStatus === 'error' && (
+      {submitStatus === 'error' && ( //FIX THIS IMMEDIATELY
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-red-400 text-center font-medium"
         >
-          ❌ {error || 'Failed to send message. Please try again.'}
-        </motion.div>
+          ❌ {error || 'This form is under maintenance. Please email me instead.'}
+        </motion.div> 
       )}
     </motion.form>
   );
