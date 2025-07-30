@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.37f86a06.css",
+    "main.js": "/static/js/main.054774f0.js",
+    "static/media/Project3.png": "/static/media/Project3.a66d50f78d58cd1a80d8.png",
+    "static/media/wireshark.png": "/static/media/wireshark.bf9add57015785d35f80.png",
+    "static/media/profile-picture.jpg": "/static/media/profile-picture.17675f2affabb9fdbd27.jpg",
+    "static/media/Project1.png": "/static/media/Project1.14f9f0a687c12284f50e.png",
+    "static/media/Project2.png": "/static/media/Project2.e4f1e8cca6e2b373f0d6.png",
+    "static/media/php.png": "/static/media/php.5a34bb57b050c9cb5739.png",
+    "static/media/mysql.png": "/static/media/mysql.1bdb30199c11ad2d4294.png",
+    "static/media/react.png": "/static/media/react.b50e7dab94392e90dafc.png",
+    "static/media/java.png": "/static/media/java.01b4f02429c79cbba571.png",
+    "static/media/css.png": "/static/media/css.cdae3efbfe738065afd3.png",
+    "static/media/html.png": "/static/media/html.904f294f10b00da71e41.png",
+    "static/media/burpsuite.png": "/static/media/burpsuite.36e8a85255251e02ba2b.png",
+    "index.html": "/index.html",
+    "main.37f86a06.css.map": "/static/css/main.37f86a06.css.map",
+    "main.054774f0.js.map": "/static/js/main.054774f0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.37f86a06.css",
+    "static/js/main.054774f0.js"
+  ]
+}
