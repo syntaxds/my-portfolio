@@ -4,6 +4,8 @@ import profileImage from '../images/profile-picture.jpg';
 import Project1Image from '../images/Project1.png';
 import Project2Image from '../images/Project2.png';
 import Project3Image from '../images/Project3.png';
+import Project4Image from '../images/Project4.png';
+import Project5Image from '../images/Project5.png';
 import { FaLinkedin } from "react-icons/fa";
 import { IoOpenOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
@@ -247,17 +249,33 @@ const Portfolio = () => {
       image: Project2Image,
       github: 'https://github.com/vikoadrian32/riskassessmentproject',
       demo: '#',
-      tags: ['HTML', 'Python']
+      tags: ['HTML', 'CSS', 'Flask', 'MySQL', 'VirusTotal', 'Python']
     },
     {
       id: 3,
       title: 'Server-Side Internet Programming',
-      description: 'Beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.',
+      description: 'A web-based Enrollment project that demonstrates server-side programming concepts using PHP, Bootstrap, and PhpMyAdmin. It includes features like user authentication, CRUD, and data management',
       image: Project3Image,
       github: 'https://github.com/GitVerseRALF/Server-Side-Internet-Programming',
       demo: '#',
       tags: ['PHP', 'Bootstrap', 'PhpMyAdmin', 'JavaScript', 'HTML', 'CSS']
     },
+    {
+      id: 4,
+      title: 'Profiling Hackers with Ministry of Defense (KEMHAN)',
+      description: 'This bootcamp project was conducted in collaboration with the Ministry of Defense (KEMHAN) with the objective of profiling active hackers and cybercriminals operating between 2023 and 2025. The project focused on collecting, analyzing, and classifying threat actor data based on their digital behavior, attack vectors, tools, and motivations.',
+      image: Project4Image,
+      demo : 'https://docs.google.com/document/d/14NzhsxhN3Z-jV5jERSXlbzUB5P7D8-RsjPyFD7lj98k/edit?usp=sharing',
+      tags: ['OSINT']
+    },
+    {
+      id: 5,
+      title: 'Capture The Flag (CTF)',
+      description: 'As part of the final assignment in a cybersecurity bootcamp, this Capture The Flag (CTF) project simulated real-world cyber investigation and exploitation scenarios. Participants were required to identify and exploit vulnerabilities across multiple stages, involving disciplines such as Open Source Intelligence (OSINT), web application exploitation, and digital forensics..',
+      image: Project5Image,
+      demo : 'https://docs.google.com/document/d/18OVeJPxpFgJ4k-kyI1nG0LeqVFjiWb6D2mBmjwvsofM/edit?usp=sharing',
+      tags: ['Linux', 'OSINT', 'Burpsuite', 'Wireshark', 'NetworkMiner', 'Autopsy']
+    }
   ];
 
   const scrollToSection = (sectionId) => {
@@ -636,7 +654,7 @@ const Portfolio = () => {
                           whileHover={{ scale: 1.05 }}
                         >
                           <ExternalLink className="w-4 h-4" />
-                          <span className="text-sm">Demo</span>
+                          <span className="text-sm">View</span>
                         </motion.a>
                       )}
                     </div>
