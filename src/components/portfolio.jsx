@@ -13,7 +13,7 @@ import { ChevronDown, Github, ExternalLink, Mail, Phone, MapPin } from 'lucide-r
 import './carousel-hide-scrollbar.css'; 
 
 // API Configuration
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://ds-webportfo.vercel.app';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
