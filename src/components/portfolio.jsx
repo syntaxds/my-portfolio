@@ -93,7 +93,6 @@ const ContactForm = () => {
       <motion.div variants={itemVariants}>
         <input
           type="text"
-          readOnly //FIX THIS IMMEDIATELY
           placeholder="Your Name"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -106,7 +105,6 @@ const ContactForm = () => {
       <motion.div variants={itemVariants}>
         <input
           type="email"
-          readOnly //FIX THIS IMMEDIATELY
           placeholder="Your Email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -118,7 +116,6 @@ const ContactForm = () => {
       
       <motion.div variants={itemVariants}>
         <textarea
-          readOnly //FIX THIS IMMEDIATELY
           placeholder="Your Message"
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -188,9 +185,11 @@ const Portfolio = () => {
     { name: 'PHP', icon: require('../images/skills/php.png') },
     { name: 'Java', icon: require('../images/skills/java.png') },
     { name: 'Burpsuite', icon: require('../images/skills/burpsuite.png') },
+    { name: 'OSINT', icon: require('../images/skills/osint.png') },
     { name: 'Wireshark', icon: require('../images/skills/wireshark.png') },
     { name: 'NetworkMiner', icon: require('../images/skills/networkminer.png') },
     { name: 'MySQL', icon: require('../images/skills/mysql.png') },
+    { name: 'linux', icon: require('../images/skills/linux.png') },
   ];
 
   // Duplicate skills for seamless looping
