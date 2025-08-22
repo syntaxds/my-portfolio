@@ -12,8 +12,6 @@ import { Link } from 'react-router-dom';
 import { ChevronDown, Github, ExternalLink, Mail, Phone, MapPin } from 'lucide-react';
 import './carousel-hide-scrollbar.css'; 
 
-// API Configuration
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://ds-webportfo.vercel.app';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -33,6 +31,8 @@ const itemVariants = {
 };
 
 // Contact Form Component
+// Fixed ContactForm component - replace your existing ContactForm in portfolio.jsx
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -50,7 +50,14 @@ const ContactForm = () => {
     setError('');
     
     try {
-      const response = await fetch(`${API_URL}/api/contact`, {
+      // For React apps, use REACT_APP_ prefix, not NEXT_PUBLIC_
+      // And fix the API endpoint to point to your API, not the frontend
+      const apiUrl = process.env.REACT_APP_API_URL || '';
+      const endpoint = apiUrl ? `${apiUrl}/api/contact` : '/api/contact';
+      
+      console.log('Submitting to:', endpoint); // Debug log
+      
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +65,10 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
+      console.log('Response status:', response.status); // Debug log
+      
       const data = await response.json();
+      console.log('Response data:', data); // Debug log
 
       if (response.ok) {
         setSubmitStatus('success');
@@ -66,16 +76,16 @@ const ContactForm = () => {
         setTimeout(() => setSubmitStatus(''), 5000);
       } else {
         setSubmitStatus('error');
-        setError(data.error || 'Failed to send message');
+        setError(data.error || `Server error: ${response.status}`);
         setTimeout(() => {
           setSubmitStatus('');
           setError('');
         }, 5000);
       }
     } catch (error) {
+      console.error('Network error:', error); // Debug log
       setSubmitStatus('error');
-      setError('This form is under maintenance, please email me instead. '); //FIX THIS IMMEDIATELY
-      console.error('Network error:', error);
+      setError('Network error. Please check your connection and try again.');
       setTimeout(() => {
         setSubmitStatus('');
         setError('');
@@ -147,13 +157,13 @@ const ContactForm = () => {
         </motion.div>
       )}
       
-      {submitStatus === 'error' && ( //FIX THIS IMMEDIATELY
+      {submitStatus === 'error' && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-red-400 text-center font-medium"
         >
-          ❌ {error || 'This form is under maintenance. Please email me instead.'}
+          ❌ {error || 'Failed to send message. Please try again.'}
         </motion.div> 
       )}
     </motion.form>
