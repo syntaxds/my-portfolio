@@ -85,7 +85,7 @@ const ContactForm = () => {
     } catch (error) {
       console.error('Network error:', error); // Debug log
       setSubmitStatus('error');
-      setError('Network error. Please check your connection and try again.');
+      setError('Under maintenance, please email me instead');
       setTimeout(() => {
         setSubmitStatus('');
         setError('');
