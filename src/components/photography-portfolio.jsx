@@ -2,30 +2,66 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GradientBlinds from './GradientBlinds';
 import Prism from './prism';
+import TextPressure from './textpressure';
 
 function PhotographyPortfolio() {
   return (
-    <div className="min-h-screen bg-black relative" style={{ overflowY: 'hidden' }}>
-      {/* Content layer positioned absolutely over the background */}
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Background layer - lowest z-index with pointer events enabled */}
+      <div className="absolute inset-0 z-0 w-full h-full pointer-events-auto">
+        <GradientBlinds
+          gradientColors={['#04003eff', '#060116ff']}
+          angle={-90}
+          noise={0.2}
+          blindCount={100}
+          blindMinWidth={50}
+          spotlightRadius={1}
+          spotlightSoftness={1}
+          spotlightOpacity={1}
+          mouseDampening={0.1}
+          distortAmount={0}
+          shineDirection="left"
+          mixBlendMode="lighten"
+        />
+      </div>
+
+      {/* Text pressure layer - middle z-index, no pointer events */}
+      <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
+        <TextPressure
+          text="RTMNS-RAW"
+          flex={false}
+          alpha={true}
+          stroke={false}
+          width={true}
+          weight={true}
+          italic={true}
+          textColor="#ffffff"
+          strokeColor="#ff0000"
+          minFontSize={36}
+        />
+      </div>
+
+      {/* Content layer - highest z-index */}
       <div className="absolute inset-0 z-10 flex flex-col justify-center py-12 px-4 pointer-events-none">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold mb-8 text-center text-white">
-            Photography Portfolio
+            
           </h1>
           
-          <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg p-8 text-center border border-gray-700 pointer-events-auto">
-            <h2 className="text-2xl font-bold mb-4 text-white">View My Photography Work</h2>
+          <div className="bg-transparent-900/90 backdrop-blur-sm rounded-lg p-8 text-center border border-gray-800 pointer-events-auto" style={{ pointerEvents: 'none' }}>
+            <h2 className="text-2xl font-bold mb-4 text-white">PHOTOGRAPHY PORTFOLIO</h2>
             <p className="text-gray-300 mb-6">
-              Click the button below to download or view in new tab to see my portfolio.
+              See my recent work by choosing one of the options below.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/ds-photography_portfolio.pdf"
                 download="Derryl_Sipahutar_Photography_Portfolio.pdf"
-                className="inline-block px-8 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                className="inline-block px-8 py-3 border border-gray-400 text-white rounded-lg font-medium hover:border-gray-300 hover:bg-white/10 transition-colors"
+                style={{ pointerEvents: 'auto' }}
               >
-                📥 Download Portfolio PDF
+                Download PDF Ver.
               </a>
               
               <a
@@ -33,17 +69,19 @@ function PhotographyPortfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-8 py-3 border border-gray-400 text-white rounded-lg font-medium hover:border-gray-300 hover:bg-white/10 transition-colors"
+                style={{ pointerEvents: 'auto' }}
               >
-                👁️ View in New Tab
+                View in New Tab
               </a>
             </div>
           </div>
           
-          {/* Re-enable pointer events for the back button */}
-          <div className="text-center mt-8 pointer-events-auto">
+          {/* Back button with pointer events enabled */}
+          <div className="text-center mt-8">
             <Link
               to="/"
-              className="px-6 py-3 bg-gray-800/90 backdrop-blur-sm text-white rounded-lg font-medium hover:bg-gray-700/90 transition-colors border border-gray-600"
+              className="inline-block px-8 py-3 border border-gray-400 text-white rounded-lg font-medium hover:border-gray-300 hover:bg-white/10 transition-colors"
+              style={{ pointerEvents: 'auto' }}
             >
               Back to Portfolio
             </Link>
@@ -51,8 +89,9 @@ function PhotographyPortfolio() {
         </div>
       </div>
 
-      {/* Prism background - full viewport responsive */}
-      <div className="absolute inset-0 w-full h-full">
+      {/* Optional: Prism background if you want to use it instead/additionally */}
+      {/*
+      <div className="absolute inset-0 z-1 w-full h-full">
         <Prism
           animationType="rotate"
           timeScale={0.5}
@@ -65,23 +104,7 @@ function PhotographyPortfolio() {
           glow={1}
         />
       </div>
-
-      {/*<div style={{width: '100%', height: '100%', position: 'relative' }}>
-        <GradientBlinds
-          gradientColors={['#04003eff', '#060116ff']}
-          angle={0}
-          noise={0.3}
-          blindCount={122}
-          blindMinWidth={50}
-          spotlightRadius={0.5}
-          spotlightSoftness={1}
-          spotlightOpacity={1}
-          mouseDampening={0.15}
-          distortAmount={0}
-          shineDirection="left"
-          mixBlendMode="lighten"
-        />
-      </div>*/}
+      */}
     </div>
   );
 }
