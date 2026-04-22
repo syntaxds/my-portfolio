@@ -6,6 +6,23 @@ import Project2Image from '../images/Project2.png';
 import Project3Image from '../images/Project3.png';
 import Project4Image from '../images/Project4.png';
 import Project5Image from '../images/Project5.png';
+import reactIcon from '../images/skills/react.png';
+import expressIcon from '../images/skills/express.png';
+import nodejsIcon from '../images/skills/nodejs.png';
+import androidstudioIcon from '../images/skills/androidstudio.png';
+import htmlIcon from '../images/skills/html.png';
+import tailwindIcon from '../images/skills/tailwind.png';
+import cssIcon from '../images/skills/css.png';
+import javascriptIcon from '../images/skills/javascript.png';
+import pythonIcon from '../images/skills/python.png';
+import phpIcon from '../images/skills/php.png';
+import javaIcon from '../images/skills/java.png';
+import burpsuiteIcon from '../images/skills/burpsuite.png';
+import osintIcon from '../images/skills/osint.png';
+import wiresharkIcon from '../images/skills/wireshark.png';
+import networkminerIcon from '../images/skills/networkminer.png';
+import mysqlIcon from '../images/skills/mysql.png';
+import linuxIcon from '../images/skills/linux.png';
 import { FaLinkedin } from "react-icons/fa";
 import { IoOpenOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
@@ -52,7 +69,7 @@ const ContactForm = () => {
     try {
       // For React apps, use REACT_APP_ prefix, not NEXT_PUBLIC_
       // And fix the API endpoint to point to your API, not the frontend
-      const apiUrl = process.env.REACT_APP_API_URL || '';
+      const apiUrl = import.meta.env.VITE_API_URL || '';
       const endpoint = apiUrl ? `${apiUrl}/api/contact` : '/api/contact';
       
       console.log('Submitting to:', endpoint); // Debug log
@@ -183,23 +200,23 @@ const Portfolio = () => {
 
   // Skills with fallback icons
   const skills = [
-    { name: 'React', icon: require('../images/skills/react.png') },
-    { name: 'Express.js', icon: require('../images/skills/express.png') },
-    { name: 'Node.js', icon: require('../images/skills/nodejs.png') },
-    { name: 'Android Studio', icon: require('../images/skills/androidstudio.png') },
-    { name: 'HTML', icon: require('../images/skills/html.png') },
-    { name: 'Tailwind CSS', icon: require('../images/skills/tailwind.png') },
-    { name: 'CSS', icon: require('../images/skills/css.png') },
-    { name: 'Javascript', icon: require('../images/skills/javascript.png') },
-    { name: 'Python', icon: require('../images/skills/python.png') },
-    { name: 'PHP', icon: require('../images/skills/php.png') },
-    { name: 'Java', icon: require('../images/skills/java.png') },
-    { name: 'Burpsuite', icon: require('../images/skills/burpsuite.png') },
-    { name: 'OSINT', icon: require('../images/skills/osint.png') },
-    { name: 'Wireshark', icon: require('../images/skills/wireshark.png') },
-    { name: 'NetworkMiner', icon: require('../images/skills/networkminer.png') },
-    { name: 'MySQL', icon: require('../images/skills/mysql.png') },
-    { name: 'linux', icon: require('../images/skills/linux.png') },
+    { name: 'React', icon: reactIcon },
+    { name: 'Express.js', icon: expressIcon },
+    { name: 'Node.js', icon: nodejsIcon },
+    { name: 'Android Studio', icon: androidstudioIcon },
+    { name: 'HTML', icon: htmlIcon },
+    { name: 'Tailwind CSS', icon: tailwindIcon },
+    { name: 'CSS', icon: cssIcon },
+    { name: 'Javascript', icon: javascriptIcon },
+    { name: 'Python', icon: pythonIcon },
+    { name: 'PHP', icon: phpIcon },
+    { name: 'Java', icon: javaIcon },
+    { name: 'Burpsuite', icon: burpsuiteIcon },
+    { name: 'OSINT', icon: osintIcon },
+    { name: 'Wireshark', icon: wiresharkIcon },
+    { name: 'NetworkMiner', icon: networkminerIcon },
+    { name: 'MySQL', icon: mysqlIcon },
+    { name: 'linux', icon: linuxIcon },
   ];
 
   // Duplicate skills for seamless looping
